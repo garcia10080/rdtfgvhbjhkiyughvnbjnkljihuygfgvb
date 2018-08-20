@@ -40,7 +40,7 @@ class Bot(commands.Bot):
         if msg.author.bot:
             return
 
-        if msg.channel.id == 478339552814301185 and self.checking_ids:
+        if msg.channel.id == 480186593383153684 and self.checking_ids:
             if msg.content == '!stop':
                 return await self.process_commands(msg)
             if len(msg.content) != 3:
@@ -67,10 +67,10 @@ class Bot(commands.Bot):
         if self.msg:
             await self.msg.edit(content='', embed=em)
         else:
-            self.msg = await self.get_channel(478339552814301185).send(embed=em)
+            self.msg = await self.get_channel(480186593383153684).send(embed=em)
 
     @commands.command()
-    @role(476854273892941824)
+    @role(480212695149314048)
     async def scrim(self, ctx):
         """Empieza el scrim"""
         self.games = {}
@@ -81,15 +81,15 @@ class Bot(commands.Bot):
             color=discord.Color.green()
         )
 
-        await self.get_channel(478339552814301185).send(embed=em)
-        await self.get_channel(478339552814301185).send('Escribe los ultimos 3 digitos de tu partida (ID).')
+        await self.get_channel(480186593383153684).send(embed=em)
+        await self.get_channel(480186593383153684).send('Escribe los ultimos 3 digitos de tu partida (ID).')
         self.checking_ids = True
         await asyncio.sleep(120)
         if not self.checking_ids:  # used stop command
             return
         self.checking_ids = False
         print('Checking stopped!')
-        await self.get_channel(478339552814301185).send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos*')
+        await self.get_channel(480186593383153684).send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos*')
 
     @commands.command()
     @role(476854273892941824)
