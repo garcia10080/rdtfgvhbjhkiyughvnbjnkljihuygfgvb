@@ -45,7 +45,7 @@ class Bot(commands.Bot):
                 return await self.process_commands(msg)
             if len(msg.content) != 3:
                 await msg.delete()
-                return await msg.channel.send('{}, su mensaje debe tener 3 dígitos de largo!'.format(msg.author.mention), delete_after=3)
+                return await msg.channel.send('{}, tu mensaje debe tener 3 dígitos de largo!'.format(msg.author.mention), delete_after=3)
             if not self.games.get(msg.content.lower()):
                 self.games[msg.content.lower()] = [msg.author.id]
             else:
@@ -77,26 +77,26 @@ class Bot(commands.Bot):
         self.msg = None
         em = discord.Embed(
             title='Empienza la partida',
-            description='Presione listo cuando la cuenta regresiva llegue a cero.',
+            description='No puedes cambiar tu ID una vez enviado!',
             color=discord.Color.green()
         )
 
         await self.get_channel(478339552814301185).send(embed=em)
-        await self.get_channel(478339552814301185).send('Escribe los ultimos 3 digitos de tu partida.')
+        await self.get_channel(478339552814301185).send('Escribe los ultimos 3 digitos de tu partida (ID).')
         self.checking_ids = True
         await asyncio.sleep(120)
         if not self.checking_ids:  # used stop command
             return
         self.checking_ids = False
         print('Checking stopped!')
-        await self.get_channel(478339552814301185).send('El tiempo ha terminado!')
+        await self.get_channel(478339552814301185).send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos*')
 
     @commands.command()
     @role(476854273892941824)
     async def stop(self, ctx):
         """Termina el scrim"""
         self.checking_ids = False
-        await ctx.send('El tiempo ha terminado!')
+        await ctx.send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos*')
         print('Checking stopped!')
 
 
