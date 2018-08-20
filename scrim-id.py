@@ -10,7 +10,7 @@ import os
 class Bot(commands.Bot):
 
     def __init__(self):
-        super().__init__(command_prefix=commands.when_mentioned_or('!'))
+        super().__init__(command_prefix=commands.when_mentioned_or('!!'))
         self.checking_ids = False
         self.games = {}
         self.msg = None
