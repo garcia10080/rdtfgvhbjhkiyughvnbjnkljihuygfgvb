@@ -10,7 +10,7 @@ import os
 class Bot(commands.Bot):
 
     def __init__(self):
-        super().__init__(command_prefix=commands.when_mentioned_or('!!'))
+        super().__init__(command_prefix=commands.when_mentioned_or('!'))
         self.checking_ids = False
         self.games = {}
         self.msg = None
@@ -92,7 +92,7 @@ class Bot(commands.Bot):
         await self.get_channel(480186593383153684).send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos*')
 
     @commands.command()
-    @role(476854273892941824)
+    @role(480212695149314048)
     async def stop(self, ctx):
         """Termina el scrim"""
         self.checking_ids = False
