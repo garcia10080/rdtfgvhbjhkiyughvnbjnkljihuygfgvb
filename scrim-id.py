@@ -89,14 +89,14 @@ class Bot(commands.Bot):
             return
         self.checking_ids = False
         print('Checking stopped!')
-        await self.get_channel(480186593383153684).send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos*')
+        await self.get_channel(480186593383153684).send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos...*')
 
     @commands.command()
     @role(480212695149314048)
     async def stop(self, ctx):
         """Termina el scrim"""
         self.checking_ids = False
-        await ctx.send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos*')
+        await ctx.send('¡El tiempo ha terminado! **No envies mensajes.** *Proxima partida en aprox 20 Minutos...*')
         print('Checking stopped!')
 
 
